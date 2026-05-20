@@ -31,15 +31,6 @@ cd backend
 npm install
 ```
 
-Create a `.env` file (copy from `.env.example`):
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/karigaarpk
-JWT_SECRET=karigaarpk_super_secret_jwt_key_change_in_production
-NODE_ENV=development
-CLIENT_URL=http://localhost:5173
-```
-
 Seed the database with sample data:
 ```bash
 node seed.js
@@ -51,7 +42,6 @@ npm run dev      # development (nodemon)
 npm start        # production
 ```
 
-Backend runs on: **http://localhost:5000**
 
 ---
 
@@ -62,8 +52,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
-Frontend runs on: **http://localhost:5173**
 
 ---
 
@@ -106,36 +94,3 @@ Frontend runs on: **http://localhost:5173**
 **Frontend:** React 18 · Vite · React Router v6 · Axios · React Hot Toast
 
 ---
-
-## 🌐 API Endpoints
-
-```
-POST   /api/users/register
-POST   /api/users/login
-GET    /api/users/profile          (auth)
-PUT    /api/users/profile          (auth)
-POST   /api/users/wishlist/:id     (auth)
-
-GET    /api/services               (public, supports ?category=&city=&search=&page=)
-GET    /api/services/:id           (public)
-GET    /api/services/admin/all     (admin)
-POST   /api/services               (admin)
-PUT    /api/services/:id           (admin)
-DELETE /api/services/:id           (admin)
-POST   /api/services/:id/review    (auth)
-
-GET    /api/cart                   (auth)
-POST   /api/cart                   (auth)
-PUT    /api/cart/:serviceId        (auth)
-DELETE /api/cart/:serviceId        (auth)
-DELETE /api/cart/clear             (auth)
-
-POST   /api/bookings               (auth)
-GET    /api/bookings/my            (auth)
-GET    /api/bookings/:id           (auth)
-PUT    /api/bookings/:id/cancel    (auth)
-GET    /api/bookings               (admin)
-PUT    /api/bookings/:id/status    (admin)
-
-GET    /api/admin/stats            (admin)
-```
