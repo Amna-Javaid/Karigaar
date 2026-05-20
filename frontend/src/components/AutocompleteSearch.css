@@ -8,13 +8,14 @@
   display: flex;
   position: relative;
   width: 100%;
+  gap: 10px;
 }
 
 .autocomplete-input {
   flex: 1;
   padding: 14px 20px;
   border: 1px solid var(--border, #e2e8f0);
-  border-radius: 12px 0 0 12px;
+  border-radius: 12px;
   font-size: 16px;
   outline: none;
   background-color: var(--bg-card, #ffffff);
@@ -29,9 +30,10 @@
 }
 
 .autocomplete-submit {
-  border-radius: 0 12px 12px 0;
-  padding: 0 24px;
+  border-radius: 12px;
+  padding: 14px 28px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .autocomplete-dropdown {

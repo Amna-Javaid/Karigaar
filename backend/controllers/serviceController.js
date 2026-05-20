@@ -4,7 +4,7 @@ const Service = require('../models/Service');
 const computeSearchContext = async (search, city, category) => {
   let matchedCategory = category || '';
   let queryText = (search || '').toLowerCase().trim();
-  
+
   const categoryKeywords = {
     'Electrician': ['electrician', 'electric', 'wiring', 'switch', 'light', 'short circuit', 'board'],
     'Plumber': ['plumber', 'plumbing', 'pipe', 'leak', 'tap', 'sink', 'toilet', 'flush', 'water tank'],
@@ -132,20 +132,20 @@ const getServices = async (req, res) => {
     const { category, city, search, featured, page = 1, limit = 12 } = req.query;
     const query = { available: true };
     if (category) query.category = category;
-    if (city)     query.city     = city;
+    if (city) query.city = city;
     if (featured === 'true') query.featured = true;
-    
+
     // Smart search logic: match title, category, description, and keywords
     if (search) {
       query.$or = [
-        { title:       { $regex: search, $options: 'i' } },
-        { category:    { $regex: search, $options: 'i' } },
+        { title: { $regex: search, $options: 'i' } },
+        { category: { $regex: search, $options: 'i' } },
         { seoKeywords: { $regex: search, $options: 'i' } },
         { description: { $regex: search, $options: 'i' } }
       ];
     }
 
-    const total    = await Service.countDocuments(query);
+    const total = await Service.countDocuments(query);
     const services = await Service.find(query)
       .sort({ featured: -1, createdAt: -1 })
       .skip((page - 1) * limit)
@@ -170,7 +170,7 @@ const getServices = async (req, res) => {
 // GET /api/services/admin/all  (admin — all services)
 const getAllServicesAdmin = async (req, res) => {
   try {
-    const services = await Service.find({}).populate('provider','name email').sort({ createdAt: -1 });
+    const services = await Service.find({}).populate('provider', 'name email').sort({ createdAt: -1 });
     res.json(services);
   } catch (err) { res.status(500).json({ message: err.message }); }
 };
@@ -190,9 +190,9 @@ const getServiceById = async (req, res) => {
     const { id } = req.params;
     let service;
     if (mongoose.Types.ObjectId.isValid(id)) {
-      service = await Service.findById(id).populate('provider','name email phone');
+      service = await Service.findById(id).populate('provider', 'name email phone');
     } else {
-      service = await Service.findOne({ slug: id }).populate('provider','name email phone');
+      service = await Service.findOne({ slug: id }).populate('provider', 'name email phone');
     }
     if (!service) return res.status(404).json({ message: 'Service not found' });
 
@@ -249,7 +249,7 @@ const addReview = async (req, res) => {
       return res.status(400).json({ message: 'Already reviewed' });
     service.reviews.push({ user: req.user._id, name: req.user.name, rating: req.body.rating, comment: req.body.comment });
     service.numReviews = service.reviews.length;
-    service.rating     = service.reviews.reduce((a, r) => a + r.rating, 0) / service.reviews.length;
+    service.rating = service.reviews.reduce((a, r) => a + r.rating, 0) / service.reviews.length;
     await service.save();
     res.status(201).json({ message: 'Review added' });
   } catch (err) { res.status(500).json({ message: err.message }); }
