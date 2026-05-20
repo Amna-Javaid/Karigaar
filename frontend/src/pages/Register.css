@@ -1,0 +1,38 @@
+.register-role-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.role-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+.role-tab span     { font-size: 22px; flex-shrink: 0; }
+.role-tab strong   { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
+.role-tab small    { display: block; font-size: 11px; color: var(--text-muted); }
+.role-tab:hover    { border-color: var(--primary); }
+.role-tab.active   { border-color: var(--primary); background: rgba(249,115,22,.06); }
+.role-tab.active strong { color: var(--primary); }
+
+.provider-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(249,115,22,.06);
+  border: 1px solid rgba(249,115,22,.2);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

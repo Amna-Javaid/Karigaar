@@ -67,15 +67,6 @@ Frontend runs on: **http://localhost:5173**
 
 ---
 
-## 🔐 Login Credentials (after seeding)
-
-| Role  | Email                     | Password  |
-|-------|---------------------------|-----------|
-| Admin | admin@karigaarpk.com      | admin123  |
-| User  | ali@example.com           | user123   |
-| User  | ayesha@example.com        | user123   |
-
----
 
 ## ✨ Features
 

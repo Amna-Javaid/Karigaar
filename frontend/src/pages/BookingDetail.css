@@ -1,0 +1,50 @@
+.bd-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 40px 24px 80px; }
+.bd-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+.bd-card h3 { font-size: 17px; font-weight: 700; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.bd-status-badge { color: white; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: var(--radius-full); }
+
+/* Timeline */
+.tracking-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+.tracking-step { display: flex; gap: 14px; position: relative; }
+.tracking-dot {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--border); color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+  z-index: 1; position: relative;
+  transition: var(--transition);
+}
+.tracking-step.done .tracking-dot { background: var(--primary); color: white; }
+.tracking-step.cancelled .tracking-dot { background: var(--danger); color: white; }
+.tracking-line {
+  position: absolute; left: 17px; top: 36px;
+  width: 2px; height: 32px;
+  background: var(--border);
+  transition: var(--transition);
+}
+.tracking-line.done { background: var(--primary); }
+.tracking-info { padding: 8px 0 24px; }
+.tracking-info strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); }
+.tracking-info span  { font-size: 12px; color: var(--text-muted); }
+
+/* Service */
+.bd-service { display: flex; gap: 14px; align-items: flex-start; }
+.bd-service img { width: 80px; height: 80px; border-radius: var(--radius-md); object-fit: cover; flex-shrink: 0; }
+.bd-service .booking-cat { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; }
+.bd-service h4 { font-size: 16px; font-weight: 700; margin: 4px 0; }
+.bd-service p  { font-size: 13px; color: var(--text-muted); }
+
+.bd-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bd-detail-item { display: flex; flex-direction: column; gap: 3px; padding: 12px; background: var(--bg); border-radius: var(--radius-md); }
+.bd-detail-item span   { font-size: 12px; color: var(--text-muted); }
+.bd-detail-item strong { font-size: 14px; font-weight: 700; color: var(--text); }
+
+.bd-price-rows { display: flex; flex-direction: column; gap: 12px; }
+.bd-price-row  { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-muted); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.bd-price-row span:last-child { font-weight: 600; color: var(--text); }
+.bd-price-total { background: var(--bg); padding: 14px; border-radius: var(--radius-md); border: none; }
+.bd-price-total span   { font-size: 15px; font-weight: 700; color: var(--text); }
+.bd-price-total strong { font-size: 22px; font-weight: 800; color: var(--primary); }
+
+@media (max-width: 900px)  { .bd-layout { grid-template-columns: 1fr; } }
+@media (max-width: 500px)  { .bd-details-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,52 @@
+.sd-page { padding: 40px 0 80px; }
+.sd-grid { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+.sd-image-wrap { position: relative; border-radius: var(--radius-xl); overflow: hidden; height: 420px; background: #f1f5f9; }
+.sd-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.sd-badge { position: absolute; top: 16px; left: 16px; background: var(--primary); color: white; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: var(--radius-full); letter-spacing: 0.03em; text-transform: uppercase; }
+.sd-info { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+.sd-category { font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 10px; }
+.sd-category svg { width: 16px; height: 16px; }
+.sd-meta-row { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; color: var(--text-muted); }
+.sd-meta-item { display: inline-flex; align-items: center; gap: 8px; }
+.meta-icon { display: inline-flex; width: 16px; height: 16px; color: var(--primary); }
+.meta-icon svg { width: 100%; height: 100%; }
+.sd-rating-row { display: flex; align-items: center; gap: 8px; }
+.sd-stars { font-size: 20px; color: #f59e0b; }
+.sd-rating-val { font-size: 18px; font-weight: 800; color: var(--text); }
+.sd-reviews-count { color: var(--text-muted); font-size: 14px; }
+.sd-description h3, .sd-reviews h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.sd-description p { color: var(--text-muted); line-height: 1.8; }
+.sd-reviews { display: flex; flex-direction: column; gap: 16px; }
+.review-card { background: var(--bg); border-radius: var(--radius-md); padding: 16px; border: 1px solid var(--border); }
+.review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.review-avatar { width: 38px; height: 38px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+.review-header strong { display: block; font-size: 14px; }
+.review-date { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.review-card p { font-size: 14px; color: var(--text-muted); }
+.review-form { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.review-form h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.star-picker { display: flex; gap: 6px; }
+.star-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #d1d5db; transition: var(--transition); padding: 0; }
+.star-btn.active { color: #f59e0b; }
+.star-btn:hover { color: #f59e0b; transform: scale(1.2); }
+
+/* Booking card */
+.booking-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; position: sticky; top: 88px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 16px; }
+.booking-price { display: flex; align-items: baseline; gap: 6px; }
+.bp-amount { font-size: 32px; font-weight: 800; color: var(--primary); }
+.bp-unit { font-size: 14px; color: var(--text-muted); }
+.hours-stepper { display: flex; align-items: center; gap: 0; border: 2px solid var(--border); border-radius: var(--radius-md); overflow: hidden; width: fit-content; }
+.hours-stepper button { width: 42px; height: 42px; background: var(--bg); border: none; font-size: 20px; cursor: pointer; transition: var(--transition); }
+.hours-stepper button:hover { background: var(--primary); color: white; }
+.hours-stepper span { padding: 0 20px; font-size: 18px; font-weight: 700; min-width: 60px; text-align: center; }
+.booking-total { display: flex; justify-content: space-between; align-items: center; background: var(--bg); padding: 14px 16px; border-radius: var(--radius-md); }
+.booking-total span { font-size: 14px; color: var(--text-muted); }
+.booking-total strong { font-size: 22px; font-weight: 800; color: var(--primary); }
+.booking-actions { display: flex; flex-direction: column; gap: 10px; }
+.booking-badges { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; border-top: 1px solid var(--border); }
+.booking-badges span { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+
+@media (max-width: 900px) {
+  .sd-grid { grid-template-columns: 1fr; }
+  .booking-card { position: static; }
+}
